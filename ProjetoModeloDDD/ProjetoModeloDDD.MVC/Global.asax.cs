@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AutoMapper;
+using ProjetoModeloDDD.Domain.Entities;
+using ProjetoModeloDDD.MVC.AutoMapper;
+using ProjetoModeloDDD.MVC.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +20,23 @@ namespace ProjetoModeloDDD.MVC
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            AutoMapperInitializer.Initialize();
+        }
+    }
+
+    public class MappingProfile : Profile
+    {
+        public void DomainToViewModelMappingProfile()
+        {
+            CreateMap<ClienteViewModel, Cliente>();
+            CreateMap<ProdutoViewModel, Produto>();
+        }
+
+        public void ViewModelToDomainMappingProfile()
+        {
+            CreateMap<Cliente, ClienteViewModel>();
+            CreateMap<Produto, ProdutoViewModel>();
         }
     }
 }
