@@ -1,13 +1,13 @@
-﻿using ProjetoModeloDDD.Domain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjetoModeloDDD.Domain.Entities;
 
-namespace ProjetoModeloDDD.Domain.Interfaces
+namespace ProjetoModeloDDD.Domain.Interfaces.Services
 {
-    public interface IProdutoRepository : IRepositoryBase<Produto>
+    public interface IProdutoService : IServiceBase<Produto>
     {
         IEnumerable<Produto> BuscarPorNome(string nome);
     }
